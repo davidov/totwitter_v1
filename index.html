@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ToTwitter - Dror Avidov</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="stylesheet/bootstrap/css/bootstrap.min.css">
+  <script src="javascript/jquery/jquery-1.9.1.js"></script>
+  <script src="javascript/jquery/jquery-ui.js"></script>
+  <script src="javascript/utils/browser_detect.js"></script>
+  <script src="javascript/main.js"></script>
+  <script src="javascript/twitter.js"></script>
+  <link rel="stylesheet" href="style/style.css" />
+  <script type="text/javascript">
+    $(document).ready (function () {
+        JQTWEET.loadTweets();
+    });
+  </script>
+</head>
+<body>
+    <div id="main" class="jstwitter"></div>
+</body>
