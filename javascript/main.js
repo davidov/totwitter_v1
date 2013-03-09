@@ -10,7 +10,7 @@ require.config({
     images_loaded: 'jquery/jquery.imagesloaded.min',
     browser_detect: 'utils/browser_detect',
     storage: 'storage/amplify.min',
-    bootstrap: 'bootstrap/bootstrap.min',
+    bootstrap: 'bootstrap/bootstrap',
     fancybox: 'fancybox/jquery.fancybox-1.3.4',
     masonry: 'jquery/jquery.masonry.min',
     twitter: 'twitter'
@@ -20,6 +20,7 @@ require.config({
 
 require([
   'jquery',
+  'bootstrap',
   'twitter'
 
 
@@ -28,5 +29,8 @@ require([
 ], function($){
     $(document).ready (function () {
         JQTWEET.loadTweets();
+        JQTWEET.refresh();
+        JQTWEET.load_data();
+        JQTWEET.handle_apply_button();
     });
 });

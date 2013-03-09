@@ -6,21 +6,82 @@ define([
   'masonry',
   'browser_detect'
 ], function($) {
-    JQTWEET ={
+    JQTWEET_DATA = {
         user: "quenesstestacc",
         numberOfTweets: 20,
+        user_timeout: 1 * 60 * 1000
+    };
+
+    JQTWEET ={
         appendTo: '.jstwitter',
+
+        handle_apply_button: function () {
+            $('#apply_button').bind('click', function () {
+                if ($('#user_username').val()) {
+                    JQTWEET_DATA.user = $('#user_username').val();
+                    var check_number_of_tweets = $('#user_number_of_tweets').val(),
+                        check_user_timeout = $('#user_refresh_rate').val();
+                    if (!isNaN(check_number_of_tweets)) {
+                        if (check_number_of_tweets > 0) {
+                            JQTWEET_DATA.numberOfTweets = check_number_of_tweets;
+                        }
+                    }
+                    if (!isNaN(check_user_timeout)) {
+                        if (check_user_timeout > 0) {
+                            JQTWEET_DATA.user_timeout = check_user_timeout * 60 * 1000;
+                        }
+                    }
+
+                    JQTWEET.clear_container();
+                    JQTWEET.load_data();
+                    JQTWEET.loadTweets();
+                }
+            });
+        },
+
+        load_data: function() {
+            $('#user_username').val(JQTWEET_DATA.user);
+            $('#user_number_of_tweets').val(JQTWEET_DATA.numberOfTweets);
+            $('#user_refresh_rate').val(JQTWEET_DATA.user_timeout / (60 * 1000));
+        },
+
+        clear_container: function () {
+            var $container = $('#jstwitter');
+            $container.remove();
+            $('#wrapper').prepend('<div id="jstwitter" class="jstwitter"></div>');
+        },
+
+        refresh: function () {
+
+            window.setInterval(function () {
+                $('#ajax-loader').show();
+                JQTWEET.clear_container();
+                JQTWEET.loadTweets();
+                $('#ajax-loader').hide('slow');
+            }, JQTWEET_DATA.user_timeout);
+        },
+
+        apply_masonry: function ($container) {
+            //trigger jQuery Masonry once all data are loaded
+              $container.masonry({
+                itemSelector : '.tweet',
+                    columnWidth : 0,
+                    isAnimated: true
+              });
+        },
 
         // Core function, load tweets
         loadTweets: function () {
+            var $container = $('#jstwitter');
+
             $.ajax({
                 url: 'http://api.twitter.com/1/statuses/user_timeline.json/',
                 type: 'GET',
                 dataType: 'jsonp',
                 data: {
-                    screen_name: JQTWEET.user,
+                    screen_name: JQTWEET_DATA.user,
                     include_rts: true,
-                    count: JQTWEET.numberOfTweets,
+                    count: JQTWEET_DATA.numberOfTweets,
                     include_entities: true
                 },
                 success: function (data, textStatus, xhr) {
@@ -40,14 +101,8 @@ define([
                         );
                     }
 
-                    //trigger jQuery Masonry once all data are loaded
-                    var $container = $('#jstwitter');
-                    $container.imagesLoaded(function(){
-                      $container.masonry({
-                        itemSelector : '.tweet',
-                        columnWidth : 0,
-                        isAnimated: true
-                      });
+                    $container.imagesLoaded(function() {
+                        JQTWEET.apply_masonry($container);
                     });
 
                     //the last step, activate fancybox

@@ -1,6 +1,4 @@
 
-body {font-family:Arial}
-
 .jstwitter {
     width: 80%;
     font-family: arial;
@@ -11,6 +9,8 @@ body {font-family:Arial}
 }
 
 .jstwitter .tweet {
+    -moz-border-radius: 15px;
+    border-radius: 15px;
     width: 150px;
     margin:5px;
     padding: 5px;
