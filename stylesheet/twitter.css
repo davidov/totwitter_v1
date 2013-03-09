@@ -1,20 +1,27 @@
+
+body {font-family:Arial}
+
 .jstwitter {
-    color: #333333;
-    font-family: gerorgia;
+    width: 80%;
+    font-family: arial;
     font-size: 15px;
+    color: #333333;
     padding: 10px;
-    width: 300px;
+    margin:0 auto;
 }
 
 .jstwitter .tweet {
-    border-bottom: 1px dotted #ccc;
-    margin: 0 auto 15px auto;
-    padding: 0 0 15px 0;
+    width: 150px;
+    margin:5px;
+    padding: 5px;
+    float:left;
+    background:#f1f1f1;
+    border:3px solid #ddd;
 }
 
 .jstwitter .tweet a {
-    color: #13c90d;
     text-decoration: none;
+    color: #13c9d0;
 }
 
 .jstwitter .tweet a:hover {

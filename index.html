@@ -6,18 +6,20 @@
   <title>ToTwitter - Dror Avidov</title>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="stylesheet/bootstrap/css/bootstrap.min.css">
-  <script src="javascript/jquery/jquery-1.9.1.js"></script>
-  <script src="javascript/jquery/jquery-ui.js"></script>
-  <script src="javascript/utils/browser_detect.js"></script>
-  <script src="javascript/main.js"></script>
-  <script src="javascript/twitter.js"></script>
-  <link rel="stylesheet" href="style/style.css" />
-  <script type="text/javascript">
-    $(document).ready (function () {
-        JQTWEET.loadTweets();
-    });
-  </script>
+  <link rel="stylesheet" href="javascript/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="stylesheet/twitter.css" type="text/css" media="screen" />
+  <script data-main="javascript/main.js" src="javascript/require/require.min.js"></script>
 </head>
 <body>
-    <div id="main" class="jstwitter"></div>
+  <header>
+  </header>
+  <div class="container">
+    <section class="page-content">
+        <div id="jstwitter" class="jstwitter"></div>
+    </section>
+    <hr />
+  </div>
+  <footer class="sticky-footer">
+    <p>&copy; Dror Avidov 2012</p>
+  </footer>
 </body>
