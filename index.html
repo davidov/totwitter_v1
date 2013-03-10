@@ -1,66 +1,58 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Totwitter v1 by davidov</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Totwitter v1</h1>
-        <p>ToTwitter version 1.0 non-ember.js</p>
-
-        <p class="view"><a href="https://github.com/davidov/totwitter_v1">View the Project on GitHub <small>davidov/totwitter_v1</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/davidov/totwitter_v1/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/davidov/totwitter_v1/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/davidov/totwitter_v1">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/davidov">davidov</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ToTwitter - Dror Avidov</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="stylesheet/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheet/bootstrap/css/bootstrap-override.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="javascript/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="stylesheet/twitter.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="stylesheet/style.css" type="text/css" media="screen" />
+  <script src="javascript/jquery/jquery-1.9.1.js"></script>
+  <script data-main="javascript/main.js" src="javascript/require/require.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="totango" href="#/home">TOTWITTER</a>
+          <div class="nav-collapse">
+            <ul class="nav pull-right">
+                <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Settings <strong class="caret"></strong></a>
+                        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                            <form action="#" accept-charset="UTF-8">
+                              <label for="user_username">Username:&nbsp;<input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" /></label>
+                              <label for="user_number_of_tweets"># of Tweets:&nbsp;<input id="user_number_of_tweets" style="margin-bottom: 15px;" name="user[number_of_tweets]" size="30" /></label>
+                              <label for="user_refresh_rate">Refresh every (in minutes):&nbsp;<input id="user_refresh_rate" style="margin-bottom: 15px;" name="user[refesh_rate]" size="30" /></label>
+                              <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="button" id="apply_button" value="Apply" />
+                            </form>
+                        </div>
+                    </li>
+              </li>
+            </ul>
+            <img class="ajax-loader" id="ajax-loader" src="images/ajax-loader.gif" alt="Loading..." />
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-</html>
+    <div id="slideForm" class="span8 pull-left collapse in" style="max-height: 30px;">
+
+    </div>
+  </header>
+  <div class="container">
+    <section class="page-content">
+        <div id="wrapper">
+            <div id="jstwitter" class="jstwitter"></div>
+        </div>
+    </section>
+    <hr />
+  </div>
+  <footer class="navbar navbar-fixed-bottom sticky-footer" id="footer">
+    <p>&copy; Dror Avidov 2012</p>
+  </footer>
+</body>
